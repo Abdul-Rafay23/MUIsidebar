@@ -1,0 +1,49 @@
+.material-form {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  padding: 30px;
+}
+
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: #f4f9ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(13, 71, 161, 0.1);
+}
+
+
+.field {
+  margin: 10px 0;
+}
+
+
+button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #1565c0;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #1565c0;
+    border: 2px solid #1565c0;
+  }
+
+  &:disabled {
+    background-color: #cfd8dc;
+    color: #607d8b;
+    cursor: not-allowed;
+  }
+}

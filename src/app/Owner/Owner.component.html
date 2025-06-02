@@ -1,0 +1,50 @@
+<div class="main">
+  <h4>Owner Details</h4>
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8 demo-table d"
+  >
+
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell class="head" *matHeaderCellDef>Full Name</th>
+      <td mat-cell class="data name" *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+      <th mat-header-cell class="head" *matHeaderCellDef>Age</th>
+      <td mat-cell class="data" *matCellDef="let element">{{ element.age }}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="company">
+      <th mat-header-cell class="head" *matHeaderCellDef>Company</th>
+      <td mat-cell class="data" *matCellDef="let element">{{ element.company }}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell class="head" *matHeaderCellDef>Address</th>
+      <td mat-cell class="data" *matCellDef="let element">{{ element.address }}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell class="head" *matHeaderCellDef>Actions</th>
+      <td mat-cell class="data" *matCellDef="let element">
+        <button mat-button color="primary" (click)="editOwner(element.id)">Edit</button>
+        <button mat-button color="warn" (click)="deleteOwner(element)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <div class="btn" style="display: flex; justify-content: center; align-items: center">
+    <button mat-raised-button color="accent" routerLink="/OwnerForm">
+      Add Owner
+    </button>
+  </div>
+</div>

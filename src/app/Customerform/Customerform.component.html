@@ -1,0 +1,48 @@
+<div class="body">
+  <h2>Customer Form</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="material-form" novalidate>
+
+
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Full Name</mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+        Name is required and must be at least 3 characters
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Age</mat-label>
+      <input type="number" matInput formControlName="age" required />
+      <mat-error *ngIf="form.get('age')?.hasError('required') && form.get('age')?.touched">
+        Age is required
+      </mat-error>
+      <mat-error *ngIf="form.get('age')?.hasError('min') || form.get('age')?.hasError('max')">
+        Age must be between 1 and 120
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="address" required />
+      <mat-error *ngIf="form.get('address')?.invalid && form.get('address')?.touched">
+        Address is required
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="example@gmail.com" required />
+
+      <mat-error *ngIf="email?.invalid && email?.touched">{{ errorMessage() }}</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+      Submit
+    </button>
+  </form>
+</div>
